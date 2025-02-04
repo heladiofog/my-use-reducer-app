@@ -42,7 +42,8 @@ const TodoList: React.FC = () => {
   const [todoText, setTodoText] = useState("");
 
   const handleAddTodo = () => {
-    const mappedText = emojiMap[todoText.toLowerCase() || todoText]
+    const mappedText = emojiMap[todoText.toLowerCase()] || todoText;
+    
     if (mappedText.trim()) {
       dispatch({ type: "ADD_TODO", payload: mappedText });
       setTodoText("");
